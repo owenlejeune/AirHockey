@@ -1,0 +1,70 @@
+body {
+    background: #86c5da;
+}
+
+canvas {
+    padding: 0px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+img{
+    padding-top: 15px;
+    margin-left: 200px;
+}
+
+/* table, th, td{
+    border: 1px solid black;
+} */
+
+.canvas {
+    background-image: url("rink.jpg");
+    border: thin inset #aaaaaa;
+}
+
+.player{
+    align-items: center;
+    margin-left: 10;
+    font-family: Arial;
+}
+
+/* .firstplayer{
+}
+
+.secondplayer{
+} */
+
+.button{
+    outline: none;
+    position: absolute;
+    /* position: relative; */
+    margin: 5px;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 20px;
+    background: #FFFFFF;
+    padding: 10px 20px 10px 20px;
+    border: solid #1f628d 2px;
+}
+
+.joinbutton{
+    right: 50%;
+}
+
+.leavebutton{
+    left: 50%;
+}
