@@ -132,7 +132,8 @@ window.addEventListener("beforeunload", (e) => {
 });
 
 window.addEventListener("keydown", (e) => {
-    if(e.which == RIGHT_ARROW || e.which == LEFT_ARROW || e.which == UP_ARROW || e.which == DOWN_ARROW){
+    if(e.which == RIGHT_ARROW || e.which == LEFT_ARROW
+        || e.which == UP_ARROW || e.which == DOWN_ARROW){
         e.preventDefault();
     }
 });
