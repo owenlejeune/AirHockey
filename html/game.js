@@ -232,6 +232,8 @@ function joinGame(){
         var name = prompt("Please enter your name", "");
         socket.emit("newPlayerRequest", JSON.stringify({id: id, name: name}));
         joined = true;
+    }else{
+        socket.emit("spectatorJoinRequest", JSON.stringify({id: id}));
     }
 }
 

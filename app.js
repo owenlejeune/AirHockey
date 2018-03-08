@@ -111,25 +111,25 @@ io.on("connection", (socket) => {
     });
     socket.on("newPlayerRequest", (data) => {
         var receivedData = JSON.parse(data);
-        var name = receivedData.name;
-        if(PLAYERS_AVAILABLE.p1){
-            PLAYERS_AVAILABLE.p1 = false;
-            player1.colour = PLAYER_1_COLOUR;
-            player1.name = name;
-            var responseObj = {id: receivedData.id, player: player1};
-            io.emit("newPlayerResponse", JSON.stringify(responseObj));
-        }else if(PLAYERS_AVAILABLE.p2){
-            PLAYERS_AVAILABLE.p2 = false;
-            player2.colour = PLAYER_2_COLOUR;
-            player2.name = name;
-            var responseObj = {id: receivedData.id, player:player2};
-            io.emit("newPlayerResponse", JSON.stringify(responseObj));
-        }else{
-            spectators.push({id: receivedData.id, name: name});
-            console.log(`Spectators ${spectators}`);
-            io.emit("newPlayerResponse", JSON.stringify({id: receivedData.id, player: SPECTATOR_STATE, names: spectators}));
-        }
-        startGame();
+        findPlayerPosition(receivedData.name, receivedData.id);
+        // if(PLAYERS_AVAILABLE.p1){
+        //     PLAYERS_AVAILABLE.p1 = false;
+        //     player1.colour = PLAYER_1_COLOUR;
+        //     player1.name = name;
+        //     var responseObj = {id: receivedData.id, player: player1};
+        //     io.emit("newPlayerResponse", JSON.stringify(responseObj));
+        // }else if(PLAYERS_AVAILABLE.p2){
+        //     PLAYERS_AVAILABLE.p2 = false;
+        //     player2.colour = PLAYER_2_COLOUR;
+        //     player2.name = name;
+        //     var responseObj = {id: receivedData.id, player:player2};
+        //     io.emit("newPlayerResponse", JSON.stringify(responseObj));
+        // }else{
+        //     spectators.push({id: receivedData.id, name: name});
+        //     console.log(`Spectators ${spectators}`);
+        //     io.emit("newPlayerResponse", JSON.stringify({id: receivedData.id, player: SPECTATOR_STATE, names: spectators}));
+        // }
+        // startGame();
     });
     socket.on("playerLeaveGame", (data) => {
         var receivedData = JSON.parse(data);
@@ -150,7 +150,41 @@ io.on("connection", (socket) => {
             io.emit("spectatorLeft", JSON.stringify({spectators: spectators}));
         }
     });
+    socket.on("spectatorJoinRequest", (data) => {
+        var receivedData = JSON.parse(data);
+        var id = receivedData.id;
+        var name;
+        for(let spectator of spectators){
+            if(id === spectator.id){
+                name = spectator.name;
+                spectators.splice(spectator, 1);
+                break;
+            }
+        }
+        io.emit("spectatorLeft", JSON.stringify({spectators: spectators}));
+        findPlayerPosition(name, id);
+    });
 });
+
+function findPlayerPosition(name, id){
+    if(PLAYERS_AVAILABLE.p1){
+        PLAYERS_AVAILABLE.p1 = false;
+        player1.colour = PLAYER_1_COLOUR;
+        player1.name = name;
+        var responseObj = {id: id, player: player1};
+        io.emit("newPlayerResponse", JSON.stringify(responseObj));
+    }else if(PLAYERS_AVAILABLE.p2){
+        PLAYERS_AVAILABLE.p2 = false;
+        player2.colour = PLAYER_2_COLOUR;
+        player2.name = name;
+        var responseObj = {id: id, player:player2};
+        io.emit("newPlayerResponse", JSON.stringify(responseObj));
+    }else{
+        spectators.push({id: id, name: name});
+        io.emit("newPlayerResponse", JSON.stringify({id: id, player: SPECTATOR_STATE, names: spectators}));
+    }
+    startGame();
+}
 
 function resetPlayer(player){
     player1.x = PLAYER_1_DEFAULT_X;
