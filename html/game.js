@@ -15,8 +15,7 @@ const GOAL_SOUND = new Audio('ding.mp3');
 const SOUND_ICON = 'sound.png';
 const MUTE_ICON = 'mute.png';
 
-var collisionSound = true;
-var goalSound = true;
+var soundEnabled = true;
 var player1 = {};
 var player2 = {};
 var puck = {}
@@ -86,7 +85,7 @@ socket.on("playerReset", (data) => {
 });
 
 socket.on("pointScored", (data) => {
-    if(goalSound){GOAL_SOUND.play()};
+    if(soundEnabled){GOAL_SOUND.play()};
     var receivedData = JSON.parse(data);
     puck = receivedData.puck;
     player1.score = receivedData.p1Score;
@@ -121,7 +120,7 @@ socket.on("startGame", (data) => {
 });
 
 socket.on("collision", (data) => {
-    if(collisionSound){HIT_SOUND.play();}
+    if(soundEnabled){HIT_SOUND.play();}
 })
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -247,7 +246,6 @@ function leaveGame(){
 }
 
 function toggleSound(){
-    collisionSound = (collisionSound) ? false : true;
-    goalSound = (goalSound) ? false : true;
-    document.getElementById('soundstate').src = (collisionSound) ? SOUND_ICON : MUTE_ICON;
+    soundEnabled = (soundEnabled) ? false : true;
+    document.getElementById('soundstate').src = (soundEnabled) ? SOUND_ICON : MUTE_ICON;
 }
