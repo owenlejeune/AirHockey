@@ -340,4 +340,4 @@ function pointScored(){
 }
 
 console.log("Server Running at PORT: 3000  CNTL-C to quit");
-console.log("To Test: open several browsers at: http://localhost:3000/assignment3.html")
+console.log("To Test: open several browsers at: http://localhost:3000/airhockey.html")
