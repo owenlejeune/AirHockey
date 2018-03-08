@@ -24,10 +24,6 @@ img{
     margin-left: 200px;
 }
 
-/* table, th, td{
-    border: 1px solid black;
-} */
-
 .canvas {
     background-image: url("rink.jpg");
     border: thin inset #aaaaaa;
@@ -39,16 +35,9 @@ img{
     font-family: Arial;
 }
 
-/* .firstplayer{
-}
-
-.secondplayer{
-} */
-
 .button{
     outline: none;
     position: absolute;
-    /* position: relative; */
     margin: 5px;
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
