@@ -131,6 +131,12 @@ window.addEventListener("beforeunload", (e) => {
     leaveGame();
 });
 
+window.addEventListener("keydown", (e) => {
+    if(e.which == RIGHT_ARROW || e.which == LEFT_ARROW || e.which == UP_ARROW || e.which == DOWN_ARROW){
+        e.preventDefault();
+    }
+});
+
 function printSpectators(names){
     var spectators = names;
     console.log(spectators);
