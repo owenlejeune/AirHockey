@@ -112,24 +112,6 @@ io.on("connection", (socket) => {
     socket.on("newPlayerRequest", (data) => {
         var receivedData = JSON.parse(data);
         findPlayerPosition(receivedData.name, receivedData.id);
-        // if(PLAYERS_AVAILABLE.p1){
-        //     PLAYERS_AVAILABLE.p1 = false;
-        //     player1.colour = PLAYER_1_COLOUR;
-        //     player1.name = name;
-        //     var responseObj = {id: receivedData.id, player: player1};
-        //     io.emit("newPlayerResponse", JSON.stringify(responseObj));
-        // }else if(PLAYERS_AVAILABLE.p2){
-        //     PLAYERS_AVAILABLE.p2 = false;
-        //     player2.colour = PLAYER_2_COLOUR;
-        //     player2.name = name;
-        //     var responseObj = {id: receivedData.id, player:player2};
-        //     io.emit("newPlayerResponse", JSON.stringify(responseObj));
-        // }else{
-        //     spectators.push({id: receivedData.id, name: name});
-        //     console.log(`Spectators ${spectators}`);
-        //     io.emit("newPlayerResponse", JSON.stringify({id: receivedData.id, player: SPECTATOR_STATE, names: spectators}));
-        // }
-        // startGame();
     });
     socket.on("playerLeaveGame", (data) => {
         var receivedData = JSON.parse(data);
