@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Air Hockey</title>
+        <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="https://i.imgur.com/ZD92p8X.png">
+    </head>
+
+    <body>
+        <h1>Air Hockey</h1>
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <h2>Player 1</h2>
+                    <h3 id="player1Name"></h3>
+                    <h1 id="player1Score">0</h1>
+                </td>
+                <td width="1000px">
+                    <div>
+                        <canvas id='canvas1' class='canvas' width='1000' height='500'></canvas>
+                        <input class="button" type="button" value="Toggle Sounds" onClick="toggleSound()">
+                        <img id="soundstate" src="sound.png">
+                        <input class="joinbutton button" type="button" value="Join Game" onClick="joinGame()">
+                        <input class="leavebutton button" type="button" value="Leave Game" onclick="leaveGame()">
+                    </div>
+                </td>
+                <td>
+                    <h2>Player 2</h2>
+                    <h3 id="player2Name"></h3>
+                    <h1 id="player2Score">0</h1>
+                </td>
+            </tr>
+            <tr height="50px"></tr>
+            <tr>
+                <td></td>
+                <td width="1000px">
+                    <h4>Spectators</h4>
+                    <div id="spectator-area"></div>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        <script src='game.js'></script>
+    </body>
+</html>

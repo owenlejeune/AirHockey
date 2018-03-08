@@ -30,7 +30,7 @@ Launch
 
 --------------------------------------------------------------------------------
 Testing
-                Visit http://localhost:3000/assignment3.html
+                Visit http://localhost:3000/airhockey.html
                 To join the game, click "Join Game" and enter your name
                 Once another player has joined from another browser window,
                     the game will begin and puck will pick a random direction
@@ -51,7 +51,7 @@ Testing
 Organization:
                 app.js
                 html
-                    assignment3.html
+                    airhockey.html
                     ding.mp3
                     game.js
                     hit.mp3
