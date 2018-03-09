@@ -10,15 +10,15 @@ Tested on MacOS 10.13.2
 node.js, Electron, socket.io
 
 # Installation Instructions
-..* Clone to local machine
-..* Run _npm install_ from root directory and Electron Client directory to install node module Dependencies
+* Clone to local machine
+* Run _npm install_ from root directory and Electron Client directory to install node module Dependencies
 
 # Running the App
 ## Starting the server
-..* Execute _node app.js_ from root directory to start the app server
+* Execute _node app.js_ from root directory to start the app server
 
 ## Browser Client
-..* Navigate to http://localhost:3000/airhockey.html from your browser
+* Navigate to http://localhost:3000/airhockey.html from your browser
 
 ## Electron Client
-..* Execute _npm start_ from inside the _Electron Client_ directory to launch the Electron Client
+* Execute _npm start_ from inside the _Electron Client_ directory to launch the Electron Client
