@@ -124,7 +124,7 @@ socket.on("collision", (data) => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-    socket.emit("newWindowLoad", JSON.stringify({width: canvas.width, height: canvas.height}));
+    socket.emit("newWindowLoad", null);
 });
 
 window.addEventListener("beforeunload", (e) => {

@@ -45,8 +45,8 @@ const DIR_RIGHT = 1;
 const DIR_NONE = 0;
 const dXY = 5;
 
-var canvasWidth = 0;
-var canvasHeight = 0;
+var canvasWidth = 1000;
+var canvasHeight = 500;
 var windowsID = 0;
 var spectators = [];
 var player1 = {
@@ -91,9 +91,6 @@ app.listen(PORT);
 
 io.on("connection", (socket) => {
     socket.on("newWindowLoad", (data) => {
-        var receivedData = JSON.parse(data);
-        canvasWidth = (receivedData.width > canvasWidth) ? receivedData.width : canvasWidth;
-        canvasHeight = (receivedData.height > canvasHeight) ? receivedData.height : canvasHeight;
         var responseObj = {player1: player1, player2: player2, puck: puck, id: windowsID};
         windowsID++;
         io.emit("newWindowLoadResponse", JSON.stringify(responseObj));
