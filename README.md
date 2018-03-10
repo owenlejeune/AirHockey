@@ -2,15 +2,15 @@
 A simple browser-based air hockey game using socket.io with Electron desktop client
 
 ### Development Environment
-node 8.9.4
-npm 5.7.1
-Tested on MacOS 10.13.2
+* node 8.9.4
+* npm 5.7.1
+* Tested on MacOS 10.13.2
 
 ### Dependencies
 node.js, Electron, socket.io
 
 # Installation Instructions
-.. * Clone to local machine
+* Clone to local machine
 * Run _npm install_ from root directory and Electron Client directory to install node module Dependencies
 
 # Running the App
