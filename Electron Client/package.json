@@ -12,12 +12,12 @@
         "socket.io": "*"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/owenlejeune/AirHockey.git"
+        "type": "git",
+        "url": "git+https://github.com/owenlejeune/AirHockey.git"
     },
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/owenlejeune/AirHockey/issues"
+        "url": "https://github.com/owenlejeune/AirHockey/issues"
     },
     "homepage": "https://github.com/owenlejeune/AirHockey#readme"
 }
