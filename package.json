@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "dependencies": {
+    "electron": "^2.0.8",
     "socket.io": "*"
   },
   "repository": {
