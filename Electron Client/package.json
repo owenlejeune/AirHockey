@@ -7,7 +7,7 @@
         "start": "electron ."
     },
     "dependencies": {
-        "electron": "^2.0.8",
+        "electron": "^15.5.5",
         "electron-prompt": "*",
         "socket.io": "*"
     },
